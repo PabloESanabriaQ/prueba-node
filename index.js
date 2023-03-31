@@ -15,3 +15,19 @@
 //Ejemplo: al visitar la url http://localhost:3000/fizzbuzz se visualice en el navegador el resultado
 //Realizar un fork del repositorio base y subir la solución a un repositorio de github propio
 //Enviar el enlace del repositorio con la solución
+
+const router = require("./src/routes");
+const express = require("express");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
+
+app.get("/fizzbuzz", router);
+
+app.get("/", (req, res) => {
+  res.send("Use /fizzbuzz to look at my resolution!");
+});
